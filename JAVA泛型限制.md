@@ -4,11 +4,11 @@
 
 1. **不能用基本类型实例化类型参数**
 
-   不能用类型参数代替基本类型。因此没有Pair<double>，只有Pair<Double>
+   不能用类型参数代替基本类型。因此没有Pair\<double>，只有Pair\<Double>
    
 2. **运行时类型查询只适用于原始类型**
 
-   无法编写 if (a instanceof Pair<String>)，只能测试 if (a instanceof Pair<?>)
+   无法编写 if (a instanceof Pair\<String>)，只能测试 if (a instanceof Pair<?>)
 
 3. **不能创建参数化类型数组**
 
@@ -132,7 +132,7 @@
 
    当泛型类型被擦除时，可能会引发冲突。如下示例，从概念上讲，它应有 
 
-   - boolean equals(String)	// defined in Pair<T>
+   - boolean equals(String)	// defined in Pair\<T>
    - boolean equals(Object)  // inherited from Object
 
    然后类型擦除后，“boolean equals(T)” 就是 "boolean equals(Object)"，与 Object.equals 方法发生冲突。
@@ -164,7 +164,7 @@
    class Manager extends Employee implements Comparable { ... }
    ```
 
-   其原因可能是与合成的桥方法产生冲突。实现了 Comparable<T> 的类可以获得一个桥方法：
+   其原因可能是与合成的桥方法产生冲突。实现了 Comparable\<T> 的类可以获得一个桥方法：
 
    ```java
    public int compareTo(Object other) { return comparetTo((X) other); }
